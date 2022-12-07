@@ -19,4 +19,5 @@ public interface ToppingRepository {
     public Boolean xoaTopping(String ma);
     public ArrayList<Topping> timKiem(String tenToppString);
     public ArrayList<ToppingViewModel> getListView();
+    public ArrayList<Topping> all();
 }

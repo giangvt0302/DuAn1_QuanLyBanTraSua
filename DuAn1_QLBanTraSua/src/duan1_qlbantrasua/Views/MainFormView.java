@@ -449,7 +449,7 @@ public class MainFormView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        QuanLyDoanhSo quanLyDoanhSo = new QuanLyDoanhSo();
+        QuanLyDoanhSoDemo quanLyDoanhSo = new QuanLyDoanhSoDemo();
         jPanelRun.removeAll();
         jPanelRun.add(quanLyDoanhSo);
         jPanelRun.setLayout(new FlowLayout());

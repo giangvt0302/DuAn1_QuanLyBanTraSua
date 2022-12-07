@@ -117,6 +117,7 @@ public class KhachHang {
     public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
+
     
     
 }

@@ -10,6 +10,7 @@ import duan1_qlbantrasua.Repositories.impl.SanPhamRepositoryImpl;
 import duan1_qlbantrasua.Services.SanPhamService;
 import duan1_qlbantrasua.ViewModels.SanPhamFromBanHang;
 import duan1_qlbantrasua.ViewModels.SanPhamViewModel;
+import duan1_qlbantrasua.ViewModels.ThongKeSanPham;
 import java.util.ArrayList;
 
 /**
@@ -72,6 +73,11 @@ public class SanPhamServiceImpl implements SanPhamService{
     @Override
     public ArrayList<SanPhamFromBanHang> getListSPFormBH() {
         return sanPhamRepository.getListSPFormBH();
+    }
+
+    @Override
+    public ArrayList<ThongKeSanPham> getListTKSanPham() {
+        return sanPhamRepository.TKSanPham();
     }
     
 }

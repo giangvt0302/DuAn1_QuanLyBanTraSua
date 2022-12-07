@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -134,6 +135,36 @@ public class MucDuongRepositoryImpl implements MucDuongRepository {
             e.printStackTrace();
         }
         return listMucDuong;
+    }
+
+    @Override
+    public ArrayList<MucDuong> all() {
+         ArrayList<MucDuong> listMD = new ArrayList<>();
+        try {
+            Connection conn = DBConnection.getConnection();
+
+            String query = "Select id,ma,ten,gia,trang_thai from muc_duong";
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ps.execute();
+
+            ResultSet rs = ps.getResultSet();
+            while (rs.next() == true) {
+                String id = rs.getString("id");
+                String ma = rs.getString("ma");
+                String ten = rs.getString("ten");
+                double gia = rs.getDouble("gia");
+                int trangThai = rs.getInt("trang_thai");
+
+               MucDuong md = new MucDuong(id, ma, ten, gia, trangThai);
+               listMD.add(md);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
+        return listMD;
     }
 
 }

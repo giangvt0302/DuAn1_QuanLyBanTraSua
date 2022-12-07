@@ -7,6 +7,7 @@ package duan1_qlbantrasua.Repositories;
 import duan1_qlbantrasua.DomainModels.SanPham;
 import duan1_qlbantrasua.ViewModels.SanPhamFromBanHang;
 import duan1_qlbantrasua.ViewModels.SanPhamViewModel;
+import duan1_qlbantrasua.ViewModels.ThongKeSanPham;
 import java.util.ArrayList;
 
 /**
@@ -22,4 +23,5 @@ public interface SanPhamRepository {
     public ArrayList<SanPhamViewModel> timKiem(String tenSanPham);
     public ArrayList<SanPhamViewModel> getListView();
     public ArrayList<SanPhamFromBanHang> getListSPFormBH();
+    public ArrayList<ThongKeSanPham> TKSanPham();
 }

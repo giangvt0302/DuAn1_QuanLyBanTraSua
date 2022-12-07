@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 /**
  *
  * @author TrungVD
@@ -59,6 +60,37 @@ public class BanRepositoryImpl implements BanRepository{
             e.printStackTrace();    
         }
         return listBan;
+    }
+
+    @Override
+    public ArrayList<Ban> all() {
+         ArrayList<Ban> listB = new ArrayList<>();
+        try {
+            Connection conn = DBConnection.getConnection();
+
+            String query = "Select id,ma,ten,trang_thai from ban";
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ps.execute();
+
+            ResultSet rs = ps.getResultSet();
+            while (rs.next() == true) {
+                String id = rs.getString("id");
+                String ma = rs.getString("ma");
+                String ten = rs.getString("ten");
+                ;
+                int trangThai = rs.getInt("trang_thai");
+               
+
+                Ban b = new Ban(id, ma, ten, trangThai);
+                listB.add(b);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
+        return listB;
     }
     
 }

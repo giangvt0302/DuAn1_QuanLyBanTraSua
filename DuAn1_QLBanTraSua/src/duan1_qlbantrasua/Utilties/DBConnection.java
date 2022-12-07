@@ -18,7 +18,7 @@ public class DBConnection {
     public static final String PORT = "1433";
     public static final String DBNAME = "DuAn1_QuanLyBanTraSua";
     public static final String USERNAME = "sa";
-    public static final String PASSWORD = "trung";
+    public static final String PASSWORD = "123qwe";
 
     public static Connection getConnection() {
         String connectionUrl = "jdbc:sqlserver://" + HOSTNAME + ":" + PORT + ";"

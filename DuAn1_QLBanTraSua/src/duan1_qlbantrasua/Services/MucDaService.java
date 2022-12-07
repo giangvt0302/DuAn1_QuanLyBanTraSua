@@ -19,4 +19,5 @@ public interface MucDaService {
     public String xoaMucDa(String ma);
     public ArrayList<MucDa> timKiem(String tenMucDa);
     public ArrayList<MucDaViewModel> getListView();
+    public ArrayList<MucDa> all();
 }

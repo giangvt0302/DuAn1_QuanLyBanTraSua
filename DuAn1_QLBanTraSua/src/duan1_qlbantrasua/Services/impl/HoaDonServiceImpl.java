@@ -8,6 +8,8 @@ import duan1_qlbantrasua.DomainModels.HoaDon;
 import duan1_qlbantrasua.Repositories.HoaDonRepository;
 import duan1_qlbantrasua.Repositories.impl.HoaDonRepositoryImpl;
 import duan1_qlbantrasua.Services.HoaDonService;
+import duan1_qlbantrasua.ViewModels.ChiTietHoaDon;
+import duan1_qlbantrasua.ViewModels.DanhSachHoaDon;
 import duan1_qlbantrasua.ViewModels.HDBHViewModel;
 import java.util.ArrayList;
 
@@ -15,9 +17,10 @@ import java.util.ArrayList;
  *
  * @author TrungVD
  */
-public class HoaDonServiceImpl implements HoaDonService{
+public class HoaDonServiceImpl implements HoaDonService {
 
-    private HoaDonRepository  hoaDonRepository = new HoaDonRepositoryImpl();
+    private HoaDonRepository hoaDonRepository = new HoaDonRepositoryImpl();
+
     @Override
     public ArrayList<HoaDon> getListHoaDonDB() {
         return hoaDonRepository.getListHoaDonDB();
@@ -26,9 +29,9 @@ public class HoaDonServiceImpl implements HoaDonService{
     @Override
     public String themHoaDon(HoaDon hoaDon) {
         boolean them = hoaDonRepository.themHoaDon(hoaDon);
-        if(them){
+        if (them) {
             return "Tạo mới hóa đơn thành công!";
-        }else{
+        } else {
             return "Tạo hóa đơn thất bại!";
         }
     }
@@ -36,9 +39,9 @@ public class HoaDonServiceImpl implements HoaDonService{
     @Override
     public String updateHoaDon(HoaDon hoaDon, String maHoaDon) {
         boolean update = hoaDonRepository.updateHoaDon(hoaDon, maHoaDon);
-        if(update){
+        if (update) {
             return "Update hóa đơn thành công!";
-        }else{
+        } else {
             return "Update hóa đơn thất bại!";
         }
     }
@@ -86,11 +89,110 @@ public class HoaDonServiceImpl implements HoaDonService{
     @Override
     public String huyHoaDon(String lyDoHuy, String maHoaDon) {
         boolean huy = hoaDonRepository.huyHoaDon(lyDoHuy, maHoaDon);
-        if(huy){
+        if (huy) {
             return "Hóa đơn đã bị hủy!";
-        }else{
+        } else {
             return "Hủy không thành công!";
         }
     }
-    
+
+    @Override
+    public ArrayList<DanhSachHoaDon> getListDS() {
+        return this.hoaDonRepository.allDS();
+    }
+
+    @Override
+    public ArrayList<ChiTietHoaDon> getListCT() {
+        return this.hoaDonRepository.allCT();
+    }
+
+    @Override
+    public ArrayList<DanhSachHoaDon> searchTheoTrangThai(String trangThai) {
+        return hoaDonRepository.searchTheoTrangThai(trangThai);
+    }
+
+    @Override
+    public ArrayList<DanhSachHoaDon> searchTheoKhoangTime(java.util.Date ngayTao, java.util.Date ngayThanhToan) {
+        return hoaDonRepository.searchTheoKhoangTime(ngayTao, ngayThanhToan); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<DanhSachHoaDon> getListDSHoaDonDB() {
+        return hoaDonRepository.getListDSHoaDonDB();
+    }
+
+    @Override
+    public ArrayList<ChiTietHoaDon> getListCTTheoMa(String ma) {
+        return hoaDonRepository.allCT(ma);
+    }
+
+//    @Override
+//    public int fillNgay(java.util.Date ngayTao) {
+//       return hoaDonRepository.fillNgayD(ngayTao);
+//    }
+    @Override
+    public double fillNgaydt(java.util.Date ngayTao) {
+        return hoaDonRepository.fillNgaydt(ngayTao);
+    }
+
+    @Override
+    public int fillNgay(java.util.Date ngayTao) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int fillNgayhd(java.util.Date ngayTao) {
+        return hoaDonRepository.fillNgayhd(ngayTao);
+    }
+
+    @Override
+    public int fillNgayhdh(java.util.Date ngayTao) {
+        return hoaDonRepository.fillNgayhdh(ngayTao);
+    }
+
+    @Override
+    public double fillTuandt(java.util.Date ngayTao) {
+        return hoaDonRepository.fillTuandt(ngayTao);
+    }
+
+    @Override
+    public int fillTuanhd(java.util.Date ngayTao) {
+        return hoaDonRepository.fillTuanhd(ngayTao);
+    }
+
+    @Override
+    public int fillTuanhdh(java.util.Date ngayTao) {
+        return hoaDonRepository.fillTuanhdh(ngayTao);
+    }
+
+    @Override
+    public double fillThangdt(java.util.Date ngayTao) {
+        return hoaDonRepository.fillThangdt(ngayTao);
+    }
+
+    @Override
+    public int fillThanghd(java.util.Date ngayTao) {
+        return hoaDonRepository.fillThanghd(ngayTao);
+    }
+
+    @Override
+    public int fillThanghdh(java.util.Date ngayTao) {
+        return hoaDonRepository.fillThanghdh(ngayTao);
+    }
+
+    @Override
+    public double fillKhoangdt(java.util.Date ngayBD, java.util.Date ngayKT) {
+        return hoaDonRepository.fillKhoangdt(ngayBD, ngayKT);
+    }
+
+    @Override
+    public int fillKhoanghd(java.util.Date ngayBD, java.util.Date ngayKT) {
+        return hoaDonRepository.fillKhoanghd(ngayBD, ngayKT);
+    }
+
+    @Override
+    public int fillKhoanghdh(java.util.Date ngayBD, java.util.Date ngayKT) {
+        return hoaDonRepository.fillKhoanghd(ngayBD, ngayKT);
+    }
+
 }

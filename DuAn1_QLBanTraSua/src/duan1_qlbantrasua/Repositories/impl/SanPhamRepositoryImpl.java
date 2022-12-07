@@ -11,10 +11,12 @@ import duan1_qlbantrasua.Repositories.SanPhamRepository;
 import duan1_qlbantrasua.Utilties.DBConnection;
 import duan1_qlbantrasua.ViewModels.SanPhamFromBanHang;
 import duan1_qlbantrasua.ViewModels.SanPhamViewModel;
+import duan1_qlbantrasua.ViewModels.ThongKeSanPham;
 import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -203,5 +205,41 @@ public class SanPhamRepositoryImpl implements SanPhamRepository {
             e.printStackTrace();
         }
         return listSanPham;
+    }
+
+    @Override
+    public ArrayList<ThongKeSanPham> TKSanPham() {
+        ArrayList<ThongKeSanPham> listKT = new ArrayList<>();
+        try {
+            Connection conn = DBConnection.getConnection();
+
+            String query = "Select  san_pham.ma,san_pham.ten,san_pham.gia, "
+                    + "sum(hoa_don_chi_tiet.so_luong) as'so_luong_ban',san_pham.trang_thai\n"
+                    + "from  hoa_don_chi_tiet inner join san_pham "
+                    + "on hoa_don_chi_tiet.id_san_pham=san_pham.id \n"
+                    + "group by san_pham.ma,san_pham.ten,san_pham.gia,san_pham.trang_thai";
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            
+
+            ps.execute();
+
+            ResultSet rs = ps.getResultSet();
+            while (rs.next() == true) {
+                String ma = rs.getString("ma");
+                String ten = rs.getString("ten");
+                Double gia = rs.getDouble("gia");
+                int soLuongBan = rs.getInt("so_luong_ban");
+                String trangThai = rs.getString("trang_thai");
+
+                ThongKeSanPham tk = new ThongKeSanPham(ma, ten, gia, soLuongBan, trangThai);
+                listKT.add(tk);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
+        return listKT;
     }
 }

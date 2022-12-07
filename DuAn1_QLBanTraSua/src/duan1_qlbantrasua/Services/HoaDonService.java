@@ -5,6 +5,8 @@
 package duan1_qlbantrasua.Services;
 
 import duan1_qlbantrasua.DomainModels.HoaDon;
+import duan1_qlbantrasua.ViewModels.ChiTietHoaDon;
+import duan1_qlbantrasua.ViewModels.DanhSachHoaDon;
 import duan1_qlbantrasua.ViewModels.HDBHViewModel;
 import java.util.ArrayList;
 
@@ -25,4 +27,23 @@ public interface HoaDonService {
     public ArrayList<HDBHViewModel> getListHDHuyThanhToan();
     public ArrayList<HoaDon> getListHDChoDB();
     public String huyHoaDon(String lyDoHuy, String maHoaDon);
+    public ArrayList<DanhSachHoaDon> getListDS();
+    public ArrayList<ChiTietHoaDon> getListCT();
+    public ArrayList<DanhSachHoaDon> searchTheoTrangThai(String trangThai);
+    public ArrayList<DanhSachHoaDon> searchTheoKhoangTime(java.util.Date ngayTao, java.util.Date ngayThanhToan);
+    public ArrayList<DanhSachHoaDon> getListDSHoaDonDB();
+    public ArrayList<ChiTietHoaDon> getListCTTheoMa(String ma);
+    public int fillNgay(java.util.Date ngayTao);
+    public double fillNgaydt(java.util.Date ngayTao);
+    public int fillNgayhd(java.util.Date ngayTao);
+    public int fillNgayhdh(java.util.Date ngayTao);
+    public double fillTuandt(java.util.Date ngayTao);
+    public int fillTuanhd(java.util.Date ngayTao);
+    public int fillTuanhdh(java.util.Date ngayTao);
+    public double fillThangdt(java.util.Date ngayTao);
+    public int fillThanghd(java.util.Date ngayTao);
+    public int fillThanghdh(java.util.Date ngayTao);
+    public double fillKhoangdt(java.util.Date ngayBD, java.util.Date ngayKT);
+    public int fillKhoanghd(java.util.Date ngayBD, java.util.Date ngayKT);
+    public int fillKhoanghdh(java.util.Date ngayBD, java.util.Date ngayKT);
 }

@@ -47,5 +47,10 @@ public class BanServiceImpl implements BanService{
     public ArrayList<BanBHViewModel> getListView() {
         return banRepository.getListView();
     }
+
+    @Override
+    public ArrayList<Ban> all() {
+        return  banRepository.all();
+    }
     
 }

@@ -19,4 +19,5 @@ public interface BanRepository {
     public Boolean xoaBan(String ma);
     public ArrayList<Ban> timKiemSP(String tenBan);
     public ArrayList<BanBHViewModel> getListView();
+    public ArrayList<Ban> all();
 }

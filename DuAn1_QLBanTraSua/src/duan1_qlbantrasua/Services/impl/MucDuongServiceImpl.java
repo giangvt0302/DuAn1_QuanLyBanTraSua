@@ -62,5 +62,10 @@ public class MucDuongServiceImpl implements MucDuongService{
     public ArrayList<MucDuongViewModel> getListView() {
         return mucDuongRepository.getListView();
     }
+
+    @Override
+    public ArrayList<MucDuong> all() {
+        return mucDuongRepository.all();
+    }
     
 }

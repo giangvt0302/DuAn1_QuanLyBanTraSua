@@ -19,4 +19,5 @@ public interface MucDuongService {
     public String xoaMucDuong(String ma);
     public ArrayList<MucDuong> timKiem(String tenMucDuong);
     public ArrayList<MucDuongViewModel> getListView();
+    public ArrayList<MucDuong> all();
 }

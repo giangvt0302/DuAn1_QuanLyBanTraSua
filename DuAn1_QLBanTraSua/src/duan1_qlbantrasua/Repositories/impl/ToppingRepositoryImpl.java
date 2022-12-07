@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -134,6 +135,36 @@ public class ToppingRepositoryImpl implements ToppingRepository{
             e.printStackTrace();
         }
         return listTopping;
+    }
+
+    @Override
+    public ArrayList<Topping> all() {
+        ArrayList<Topping> listT = new ArrayList<>();
+        try {
+            Connection conn = DBConnection.getConnection();
+
+            String query = "Select id,ma,ten,gia,trang_thai from topping";
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ps.execute();
+
+            ResultSet rs = ps.getResultSet();
+            while (rs.next() == true) {
+                String id = rs.getString("id");
+                String ma = rs.getString("ma");
+                String ten = rs.getString("ten");
+                double gia = rs.getDouble("gia");
+                int trangThai = rs.getInt("trang_thai");
+
+                Topping t = new Topping(id, ma, ten, gia, trangThai);
+               listT.add(t);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
+        return listT;
     }
     
 }

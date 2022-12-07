@@ -62,5 +62,10 @@ public class ToppingServiceImpl implements ToppingService{
     public ArrayList<ToppingViewModel> getListView() {
         return toppingRepository.getListView();
     }
+
+    @Override
+    public ArrayList<Topping> all() {
+        return toppingRepository.all();
+    }
     
 }

@@ -63,5 +63,10 @@ public class MucDaServiceImpl implements MucDaService{
     public ArrayList<MucDaViewModel> getListView() {
         return mucDaRepository.getListView();
     }
+
+    @Override
+    public ArrayList<MucDa> all() {
+        return mucDaRepository.all();
+    }
     
 }
