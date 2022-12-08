@@ -4,6 +4,7 @@
  */
 package duan1_qlbantrasua.Views;
 
+import com.sun.tools.javac.Main;
 import duan1_qlbantrasua.DomainModels.HoaDon;
 import duan1_qlbantrasua.Services.HoaDonService;
 import duan1_qlbantrasua.Services.SanPhamService;
@@ -12,8 +13,11 @@ import duan1_qlbantrasua.Services.impl.SanPhamServiceImpl;
 import duan1_qlbantrasua.ViewModels.DanhSachHoaDon;
 import duan1_qlbantrasua.ViewModels.ThongKeSanPham;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFileChooser;
@@ -21,7 +25,7 @@ import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import org.apache.log4j.LogManager;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFChartSheet;
@@ -679,7 +683,7 @@ public class QuanLyDoanhSo extends javax.swing.JPanel {
                 XSSFRow row = null;
                 Cell cell = null;
 
-                row = sheet.createRow(5);
+                row = sheet.createRow(0);
                 int rownum = 0;
 
                 cell = row.createCell(0, CellType.STRING);
@@ -701,6 +705,11 @@ public class QuanLyDoanhSo extends javax.swing.JPanel {
                 cell.setCellValue("Trạng thái");
 
                 System.out.println(exclePath);
+                try {
+                    fileOut = new FileOutputStream(exclePath);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
 
                 for (ThongKeSanPham tk : this.sps.getListTKSanPham()) {
                     rownum++;
@@ -726,9 +735,19 @@ public class QuanLyDoanhSo extends javax.swing.JPanel {
                 }
 //                File f = new File("C:\\Users\\Giang\\OneDrive\\Máy tính\\ProJect_1\\DuAn1QuanLyBanTraSua\\Execl");
 //                FileOutputStream fis = new FileOutputStream(f);
-                fileOut = new FileOutputStream(exclePath);
-                workbook.write(fileOut);
-                fileOut.close();
+//                fileOut = new FileOutputStream(exclePath);
+//                workbook.write(fileOut);
+//                fileOut.close();
+                try {
+                    workbook.write(fileOut);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    fileOut.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
