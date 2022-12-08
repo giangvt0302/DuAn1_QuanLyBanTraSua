@@ -421,7 +421,7 @@ public class HoaDonView extends javax.swing.JPanel {
                 ds.getNgayThanhToan(),
                 ds.getTongTien(),
                 ds.getGhiChu(),
-                ds.getTrangThai()
+                ds.getTrangThai() == 0 ? "Chờ thanh toán" : ds.getTrangThai() == 1 ? "Đã thanh toán" : "Hủy thanh toán",
             };
 
             model.addRow(rowData);

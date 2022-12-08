@@ -63,9 +63,10 @@ public class KhuyenMaiRespositoryimpl implements KhuyenMaiRespository {
                 + "values(?,?,?,?,?,?,?,?)";
 
         try (Connection con = DBConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query)) {
+            java.sql.Date sqlDate1 = new java.sql.Date(km.getNgayTao().getTime());
             ps.setString(1, km.getMa());
             ps.setString(2, km.getTen());
-            ps.setDate(3, (java.sql.Date) km.getNgayTao());
+            ps.setDate(3, sqlDate1);
             ps.setInt(4, km.getKieuKhuyenMai());
             ps.setFloat(5, km.getTienKhuyenMai());
             ps.setInt(6, km.getPhamTramKhuyenMai());
@@ -86,9 +87,10 @@ public class KhuyenMaiRespositoryimpl implements KhuyenMaiRespository {
                 + "kieu_khuyen_mai=?,tien_khuyen_mao=?,phan_tram_khuyen_mai=?,"
                 + "ghi_chu=?,trang_thai=? where id=?";
         try (Connection con = DBConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query)) {
+            java.sql.Date sqlDate1 = new java.sql.Date(km.getNgayTao().getTime());
             ps.setString(1, km.getMa());
             ps.setString(2, km.getTen());
-            ps.setDate(3, (java.sql.Date) km.getNgayTao());
+            ps.setDate(3, sqlDate1);
             ps.setInt(4, km.getKieuKhuyenMai());
             ps.setFloat(5, km.getTienKhuyenMai());
             ps.setInt(6, km.getPhamTramKhuyenMai());
@@ -132,11 +134,11 @@ public class KhuyenMaiRespositoryimpl implements KhuyenMaiRespository {
             while (rs.next() == true) {
                 String id = rs.getString("id");
                 String ma = rs.getString("ma");
-                String ten = rs.getString("ho_va_ten");
-                Date ngayTao = rs.getDate("ngay_sinh");
-                int kieuKhuyenMai = rs.getInt("diem");
-                float tienKhuyenMai = rs.getInt("diem");
-                int phamTramKhuyenMai = rs.getInt("diem");
+                String ten = rs.getString("ten");
+                Date ngayTao = rs.getDate("ngay_tao");
+                int kieuKhuyenMai = rs.getInt("kieu_khuyen_mai");
+                float tienKhuyenMai = rs.getInt("tien_khuyen_mao");
+                int phamTramKhuyenMai = rs.getInt("phan_tram_khuyen_mai");
                 String ghiChu = rs.getString("ghi_chu");
                 int trangThai = rs.getInt("trang_thai");
 

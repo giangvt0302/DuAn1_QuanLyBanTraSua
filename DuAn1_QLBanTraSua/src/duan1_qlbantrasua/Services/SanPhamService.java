@@ -24,4 +24,6 @@ public interface SanPhamService {
     public ArrayList<SanPhamViewModel> getListView();
     public ArrayList<SanPhamFromBanHang> getListSPFormBH();
     public ArrayList<ThongKeSanPham> getListTKSanPham();
+    public ArrayList<ThongKeSanPham> getListTKSanPhamTOPSLBNhieu();
+    public ArrayList<ThongKeSanPham> getListTKSanPhamTOPSLBIt();
 }

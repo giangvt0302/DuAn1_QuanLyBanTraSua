@@ -29,7 +29,6 @@ public interface HoaDonRepository {
     public Boolean huyHoaDon(String hoaDon, String maHoaDon);
     public ArrayList<DanhSachHoaDon> allDS();
     public ArrayList<ChiTietHoaDon> allCT();
-    public ArrayList<DanhSachHoaDon> searchTheoTrangThai(String trangThai);
     public ArrayList<DanhSachHoaDon> getListDSHoaDonDB();
     public ArrayList<ChiTietHoaDon> allCT(String ma);
     public ArrayList<DanhSachHoaDon> searchTheoKhoangTime(java.util.Date ngayTao, java.util.Date ngayThanhToan);

@@ -106,10 +106,6 @@ public class HoaDonServiceImpl implements HoaDonService {
         return this.hoaDonRepository.allCT();
     }
 
-    @Override
-    public ArrayList<DanhSachHoaDon> searchTheoTrangThai(String trangThai) {
-        return hoaDonRepository.searchTheoTrangThai(trangThai);
-    }
 
     @Override
     public ArrayList<DanhSachHoaDon> searchTheoKhoangTime(java.util.Date ngayTao, java.util.Date ngayThanhToan) {

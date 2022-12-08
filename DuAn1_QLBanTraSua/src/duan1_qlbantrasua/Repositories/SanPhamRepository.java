@@ -24,4 +24,6 @@ public interface SanPhamRepository {
     public ArrayList<SanPhamViewModel> getListView();
     public ArrayList<SanPhamFromBanHang> getListSPFormBH();
     public ArrayList<ThongKeSanPham> TKSanPham();
+    public ArrayList<ThongKeSanPham> TKSanPhamTOPSLBNhieu();
+    public ArrayList<ThongKeSanPham> TKSanPhamTOPSLBIt();
 }

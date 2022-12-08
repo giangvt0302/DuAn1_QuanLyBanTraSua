@@ -45,6 +45,7 @@ public class Login extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnThoat = new javax.swing.JButton();
+        showHideCheck = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -82,6 +83,13 @@ public class Login extends javax.swing.JDialog {
         btnThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duan1_qlbantrasua/Views/icon/check-out.png"))); // NOI18N
         btnThoat.setText("Thoát");
 
+        showHideCheck.setText("Show pass");
+        showHideCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showHideCheckActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -97,7 +105,8 @@ public class Login extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txpMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txpMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(showHideCheck))
                         .addGap(0, 23, Short.MAX_VALUE)))
                 .addGap(34, 34, 34))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -122,7 +131,9 @@ public class Login extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txpMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(showHideCheck)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -179,6 +190,15 @@ public class Login extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnDangNhapActionPerformed
 
+    private void showHideCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showHideCheckActionPerformed
+        if (showHideCheck.isSelected()) {
+            txpMatKhau.setEchoChar((char) 0);
+        } else {
+            txpMatKhau.setEchoChar('*');
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showHideCheckActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -229,6 +249,7 @@ public class Login extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton showHideCheck;
     private javax.swing.JPasswordField txpMatKhau;
     private javax.swing.JTextField txtTaiKhoan;
     // End of variables declaration//GEN-END:variables

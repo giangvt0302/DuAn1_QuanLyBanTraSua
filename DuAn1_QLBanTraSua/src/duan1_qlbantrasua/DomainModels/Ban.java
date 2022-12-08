@@ -12,23 +12,33 @@ public class Ban {
     private String id;
     private String ma;
     private String ten;
+    // private String ghiChu;
     private int trangThai;
 
     public Ban() {
     }
 
+    public Ban(String id, String ma, String ten, int trangThai) {
+        this.id = id;
+        this.ma = ma;
+        this.ten = ten;
+     
+        this.trangThai = trangThai;
+    }
+  
     public Ban(String id, String ten, int trangThai) {
         this.id = id;
         this.ten = ten;
         this.trangThai = trangThai;
     }
 
-    
-    public Ban(String id, String ma, String ten, int trangThai) {
-        this.id = id;
+
+    public String getMa() {
+        return ma;
+    }
+
+    public void setMa(String ma) {
         this.ma = ma;
-        this.ten = ten;
-        this.trangThai = trangThai;
     }
 
     public String getId() {
@@ -38,14 +48,7 @@ public class Ban {
     public void setId(String id) {
         this.id = id;
     }
-
-    public String getMa() {
-        return ma;
-    }
-
-    public void setMa(String ma) {
-        this.ma = ma;
-    }
+  
 
     public String getTen() {
         return ten;

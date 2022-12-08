@@ -20,13 +20,13 @@ public class DanhSachHoaDon {
     private Date ngayThanhToan;
     private String khachHang;
     private double tongTien;
-    private String trangThai;
+    private int trangThai;
     private String ghiChu;
 
     public DanhSachHoaDon() {
     }
 
-    public DanhSachHoaDon(String maHD, String nguoiTao, Date ngayTao, Date ngayThanhToan, String khachHang, double tongTien, String trangThai, String ghiChu) {
+    public DanhSachHoaDon(String maHD, String nguoiTao, Date ngayTao, Date ngayThanhToan, String khachHang, double tongTien, int trangThai, String ghiChu) {
         this.maHD = maHD;
         this.nguoiTao = nguoiTao;
         this.ngayTao = ngayTao;
@@ -71,15 +71,12 @@ public class DanhSachHoaDon {
         this.nguoiTao = nguoiTao;
     }
 
-    public String getTrangThai() {
-        if (trangThai.equals(0)) {
-            return "Chờ thanh toán";
-        } else {
-            return "Đã thanh toán";
-        }
+    public int getTrangThai() {
+        return trangThai;
+        
     }
 
-    public void setTrangThai(String trangThai) {
+    public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
 

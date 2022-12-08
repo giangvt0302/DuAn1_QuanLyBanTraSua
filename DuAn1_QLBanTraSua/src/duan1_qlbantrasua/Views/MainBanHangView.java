@@ -582,7 +582,7 @@ public class MainBanHangView extends javax.swing.JPanel {
     private void btnTaoHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaoHoaDonActionPerformed
         NhanVien nhanVien = new NhanVien(nhanVienLogin.getId(), nhanVienLogin.getMa(), nhanVienLogin.getHoVaTen());
         System.out.println(nhanVien.getId());
-        int sTT = qLHoaDon.getListHDChoDB().size() + 1;
+        int sTT = qLHoaDon.getListHoaDonDB().size() + 1;
         String maHD = "HD" + String.valueOf(sTT);
         HoaDon hoaDon = new HoaDon(maHD, new Date(), nhanVien);
         qLHoaDon.themHoaDon(hoaDon);

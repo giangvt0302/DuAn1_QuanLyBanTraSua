@@ -78,7 +78,7 @@ public class BanRepositoryImpl implements BanRepository{
                 String id = rs.getString("id");
                 String ma = rs.getString("ma");
                 String ten = rs.getString("ten");
-                ;
+                String ghiChu = rs.getString("ghi_chu");
                 int trangThai = rs.getInt("trang_thai");
                
 

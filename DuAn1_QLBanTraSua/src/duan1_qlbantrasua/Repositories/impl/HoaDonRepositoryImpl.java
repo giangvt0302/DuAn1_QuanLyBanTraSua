@@ -281,8 +281,8 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
             String query = "Select hoa_don.ma,nhan_vien.ho_va_ten as 'nguoi_tao',"
                     + "khach_hang.ho_va_ten as 'khach_hang',hoa_don.ngay_tao,"
                     + "hoa_don.ngay_thanh_toan,tong_tien,hoa_don.ghi_chu,hoa_don.trang_thai\n"
-                    + "from hoa_don inner join nhan_vien on hoa_don.id_nhan_vien=nhan_vien.id\n"
-                    + "inner join khach_hang on hoa_don.id_khach_hang=khach_hang.id";
+                    + "from hoa_don left join nhan_vien on hoa_don.id_nhan_vien=nhan_vien.id\n"
+                    + "left join khach_hang on hoa_don.id_khach_hang=khach_hang.id";
             PreparedStatement ps = conn.prepareStatement(query);
 
             ps.execute();
@@ -296,7 +296,7 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
                 java.sql.Date ngayThanhToan = rs.getDate("ngay_thanh_toan");
                 double tongTien = rs.getDouble("tong_tien");
                 String ghiChu = rs.getString("ghi_chu");
-                String trangThai = rs.getString("trang_thai");
+                int trangThai = rs.getInt("trang_thai");
 
                 DanhSachHoaDon ds = new DanhSachHoaDon(maHD, nguoiTao, ngayTao, ngayThanhToan, khachHang, tongTien, trangThai, ghiChu);
                 listDS.add(ds);
@@ -317,11 +317,11 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
             String query = "Select  san_pham.ma,san_pham.ten,san_pham.gia, hoa_don_chi_tiet.so_luong,\n"
                     + "size.ten as'size',muc_da.ten as 'muc_da',"
                     + "muc_duong.ten as 'muc_duong',hoa_don_chi_tiet.tong_tien, hoa_don_chi_tiet.trang_thai\n"
-                    + "from  hoa_don_chi_tiet inner join san_pham on hoa_don_chi_tiet.id_san_pham=san_pham.id\n"
-                    + "inner join size on hoa_don_chi_tiet.id_size=size.id\n"
-                    + "inner join muc_da on hoa_don_chi_tiet.id_da=muc_da.id\n"
-                    + "inner join muc_duong on hoa_don_chi_tiet.id_duong=muc_duong.id\n"
-                    + "inner join hoa_don on hoa_don_chi_tiet.id_hoa_don=hoa_don.id\n"
+                    + "from  hoa_don_chi_tiet left join san_pham on hoa_don_chi_tiet.id_san_pham=san_pham.id\n"
+                    + "left join size on hoa_don_chi_tiet.id_size=size.id\n"
+                    + "left join muc_da on hoa_don_chi_tiet.id_da=muc_da.id\n"
+                    + "left join muc_duong on hoa_don_chi_tiet.id_duong=muc_duong.id\n"
+                    + "left join hoa_don on hoa_don_chi_tiet.id_hoa_don=hoa_don.id\n"
                     + "where hoa_don_chi_tiet.id_hoa_don=?";
             PreparedStatement ps = conn.prepareStatement(query);
 
@@ -360,8 +360,8 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
 //                    + "khach_hang.ho_va_ten as 'khach_hang',\n"
 //                    + "hoa_don.ngay_tao,hoa_don.ngay_thanh_toan,tong_tien,"
 //                    + "hoa_don.ghi_chu,hoa_don.trang_thai\n"
-//                    + "from hoa_don inner join nhan_vien on hoa_don.id_nhan_vien=nhan_vien.id\n"
-//                    + "inner join khach_hang on hoa_don.id_khach_hang=khach_hang.id\n"
+//                    + "from hoa_don left join nhan_vien on hoa_don.id_nhan_vien=nhan_vien.id\n"
+//                    + "left join khach_hang on hoa_don.id_khach_hang=khach_hang.id\n"
 //                    + "where ngay_tao>=? and ngay_thanh_toan<=?";
 //            PreparedStatement ps = conn.prepareStatement(query);
 //           
@@ -394,46 +394,7 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
 //        return listDS;
 //    }
 
-    @Override
-    public ArrayList<DanhSachHoaDon> searchTheoTrangThai(String trangThai) {
-        ArrayList<DanhSachHoaDon> listDS = new ArrayList<>();
-        try {
-            Connection conn = DBConnection.getConnection();
-
-            String query = "Select hoa_don.ma,nhan_vien.ho_va_ten as 'nguoi_tao',"
-                    + "khach_hang.ho_va_ten as 'khach_hang',\n"
-                    + "hoa_don.ngay_tao,hoa_don.ngay_thanh_toan,tong_tien,"
-                    + "hoa_don.ghi_chu,hoa_don.trang_thai\n"
-                    + "from hoa_don inner join nhan_vien on hoa_don.id_nhan_vien=nhan_vien.id\n"
-                    + "inner join khach_hang on hoa_don.id_khach_hang=khach_hang.id\n"
-                    + "where hoa_don.trang_thai=?";
-            PreparedStatement ps = conn.prepareStatement(query);
-
-            ps.setString(1, trangThai);
-
-            ps.execute();
-
-            ResultSet rs = ps.getResultSet();
-            while (rs.next() == true) {
-                String maHD = rs.getString("ma");
-                String nguoiTao = rs.getString("nguoi_tao");
-                String khachHang = rs.getString("khach_hang");
-                java.sql.Date ngayTao = rs.getDate("ngay_tao");
-                java.sql.Date ngayThanhToan = rs.getDate("ngay_thanh_toan");
-                double tongTien = rs.getDouble("tong_tien");
-                String ghiChu = rs.getString("ghi_chu");
-                trangThai = rs.getString("trang_thai");
-
-                DanhSachHoaDon ds = new DanhSachHoaDon(maHD, nguoiTao, ngayTao, ngayThanhToan, khachHang, tongTien, trangThai, ghiChu);
-                listDS.add(ds);
-            }
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-
-        }
-        return listDS;
-    }
+    
 
     @Override
     public ArrayList<DanhSachHoaDon> searchTheoKhoangTime(java.util.Date ngayTao, java.util.Date ngayThanhToan) {
@@ -445,8 +406,8 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
                     + "khach_hang.ho_va_ten as 'khach_hang',\n"
                     + "hoa_don.ngay_tao,hoa_don.ngay_thanh_toan,tong_tien,"
                     + "hoa_don.ghi_chu,hoa_don.trang_thai\n"
-                    + "from hoa_don inner join nhan_vien on hoa_don.id_nhan_vien=nhan_vien.id\n"
-                    + "inner join khach_hang on hoa_don.id_khach_hang=khach_hang.id\n"
+                    + "from hoa_don left join nhan_vien on hoa_don.id_nhan_vien=nhan_vien.id\n"
+                    + "left join khach_hang on hoa_don.id_khach_hang=khach_hang.id\n"
                     + "where ngay_tao>=? and ngay_thanh_toan<=?";
             PreparedStatement ps = conn.prepareStatement(query);
             java.sql.Date sqlDate1 = new java.sql.Date(ngayTao.getTime());
@@ -465,7 +426,7 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
                 ngayThanhToan = rs.getDate("ngay_thanh_toan");
                 double tongTien = rs.getDouble("tong_tien");
                 String ghiChu = rs.getString("ghi_chu");
-                String trangThai = rs.getString("trang_thai");
+                int trangThai = rs.getInt("trang_thai");
 
                 DanhSachHoaDon ds = new DanhSachHoaDon(maHD, nguoiTao, ngayTao, ngayThanhToan, khachHang, tongTien, trangThai, ghiChu);
                 listDS.add(ds);
@@ -483,8 +444,8 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
         ArrayList<DanhSachHoaDon> listDanhSachHoaDon = new ArrayList<>();
         String query = "Select hoa_don.ma,nhan_vien.ho_va_ten as 'nguoi_tao',khach_hang.ho_va_ten as 'khach_hang',\n"
                 + "hoa_don.ngay_tao,hoa_don.ngay_thanh_toan,tong_tien,hoa_don.ghi_chu,hoa_don.trang_thai\n"
-                + "from hoa_don inner join nhan_vien on hoa_don.id_nhan_vien=nhan_vien.id\n"
-                + "             inner join khach_hang on hoa_don.id_khach_hang=khach_hang.id";
+                + "from hoa_don left join nhan_vien on hoa_don.id_nhan_vien=nhan_vien.id\n"
+                + "             left join khach_hang on hoa_don.id_khach_hang=khach_hang.id";
         try (Connection con = connection.getConnection(); PreparedStatement ps = con.prepareStatement(query)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -506,11 +467,11 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
 
             String query = "Select  san_pham.ma,san_pham.ten,san_pham.gia, hoa_don_chi_tiet.so_luong,muc_da.ten as 'muc_da',\n"
                     + "muc_duong.ten as 'muc_duong',topping.ten as 'topping',hoa_don_chi_tiet.tong_tien, hoa_don_chi_tiet.trang_thai\n"
-                    + "from  hoa_don_chi_tiet inner join san_pham on hoa_don_chi_tiet.id_san_pham=san_pham.id\n"
-                    + "inner join muc_da on hoa_don_chi_tiet.id_da=muc_da.id\n"
-                    + "inner join muc_duong on hoa_don_chi_tiet.id_duong=muc_duong.id\n"
-                    + "inner join topping on hoa_don_chi_tiet.id_topping=topping.id\n"
-                    + "inner join hoa_don on hoa_don_chi_tiet.id_hoa_don=hoa_don.id\n"
+                    + "from  hoa_don_chi_tiet left join san_pham on hoa_don_chi_tiet.id_san_pham=san_pham.id\n"
+                    + "left join muc_da on hoa_don_chi_tiet.id_da=muc_da.id\n"
+                    + "left join muc_duong on hoa_don_chi_tiet.id_duong=muc_duong.id\n"
+                    + "left join topping on hoa_don_chi_tiet.id_topping=topping.id\n"
+                    + "left join hoa_don on hoa_don_chi_tiet.id_hoa_don=hoa_don.id\n"
                     + "where hoa_don.ma=?";
             PreparedStatement ps = conn.prepareStatement(query);
 
@@ -720,7 +681,7 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
         int t = 0;
         try {
             Connection conn = DBConnection.getConnection();
-            String query = "Select count(ma) as 'so_hoa_don' from hoa_don  "
+            String query = "Select count(ma) as 'so_hoa_don_huy' from hoa_don  "
                     + "where ngay_tao=? and trang_thai=2  "
                     + "group by MONTH(ngay_tao)";
             PreparedStatement ps = conn.prepareStatement(query);
@@ -791,7 +752,7 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
         int t = 0;
         try {
             Connection conn = DBConnection.getConnection();
-            String query = "Select count(ma) as 'so_hoa_don' from hoa_don  "
+            String query = "Select count(ma) as 'so_hoa_don_huy' from hoa_don  "
                     + "where trang_thai=2 and ngay_tao between ? and ? ";
             PreparedStatement ps = conn.prepareStatement(query);
             java.sql.Date sqlDate1 = new java.sql.Date(ngayBD.getTime());

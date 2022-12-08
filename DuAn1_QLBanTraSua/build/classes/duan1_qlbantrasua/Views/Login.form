@@ -89,6 +89,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtTaiKhoan" min="-2" pref="261" max="-2" attributes="0"/>
                                   <Component id="txpMatKhau" min="-2" pref="261" max="-2" attributes="0"/>
+                                  <Component id="showHideCheck" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
                           </Group>
@@ -122,7 +123,9 @@
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txpMatKhau" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="showHideCheck" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="37" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnThoat" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="btnDangNhap" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
@@ -206,6 +209,14 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tho&#xe1;t"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="showHideCheck">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Show pass"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showHideCheckActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

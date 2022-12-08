@@ -209,7 +209,7 @@ public class QuanLyView extends javax.swing.JPanel {
         txtTenBan = new javax.swing.JTextField();
         lblIDBan = new javax.swing.JLabel();
         cboBan = new javax.swing.JComboBox<>();
-        txtMaBan = new javax.swing.JTextField();
+        txtMa = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
         jPanel22 = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
@@ -243,7 +243,7 @@ public class QuanLyView extends javax.swing.JPanel {
 
         jLabel6.setText("Trạng thái");
 
-        cboTrangThaiDuong.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        cboTrangThaiDuong.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "còn bán", "ngừng kinh doanh" }));
 
         jLabel21.setText("Giá");
 
@@ -256,7 +256,7 @@ public class QuanLyView extends javax.swing.JPanel {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtMaDuong, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6)
@@ -272,7 +272,7 @@ public class QuanLyView extends javax.swing.JPanel {
                     .addComponent(cboTrangThaiDuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(txtTenDuong, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel21)))
                 .addGap(18, 18, 18)
                 .addComponent(txtGiaDuong, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -425,7 +425,7 @@ public class QuanLyView extends javax.swing.JPanel {
 
         jLabel9.setText("Trạng thái");
 
-        cboTrangThaiDa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboTrangThaiDa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "còn bán", "ngừng kinh doanh" }));
 
         jLabel22.setText("Giá");
 
@@ -667,7 +667,7 @@ public class QuanLyView extends javax.swing.JPanel {
 
         jLabel19.setText("Trạng thái");
 
-        cboTrangThaiTopping.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboTrangThaiTopping.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "còn bán", "ngừng kinh doanh" }));
 
         jLabel20.setText("Giá");
 
@@ -773,7 +773,7 @@ public class QuanLyView extends javax.swing.JPanel {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -829,7 +829,7 @@ public class QuanLyView extends javax.swing.JPanel {
         txtDiachi.setRows(5);
         jScrollPane5.setViewportView(txtDiachi);
 
-        cboTrangThaiKH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Không hoạt động", "Còn hoạt động" }));
+        cboTrangThaiKH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Còn hoạt động", "Không hoạt động", " " }));
 
         lblIDKhachHang.setForeground(new java.awt.Color(255, 255, 255));
         lblIDKhachHang.setText("ID khách hàng");
@@ -1055,7 +1055,7 @@ public class QuanLyView extends javax.swing.JPanel {
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1192,7 +1192,7 @@ public class QuanLyView extends javax.swing.JPanel {
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("Ghi chú:");
 
-        cboTrangThaiKM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Không hoạt động", "Còn hoạt động" }));
+        cboTrangThaiKM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Còn hạn", "Hết hạn" }));
 
         lblIDKhuyenMai.setForeground(new java.awt.Color(255, 255, 255));
         lblIDKhuyenMai.setText("ID khuyến mãi");
@@ -1343,7 +1343,7 @@ public class QuanLyView extends javax.swing.JPanel {
         lblIDBan.setForeground(new java.awt.Color(255, 255, 255));
         lblIDBan.setText("ID bàn");
 
-        cboBan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chưa sử dụng", "Đang sử dụng" }));
+        cboBan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đang sử dụng", "Chưa sử dụng", " " }));
 
         jLabel51.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
@@ -1356,21 +1356,26 @@ public class QuanLyView extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblIDBan, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel20Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel43, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel51, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cboBan, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTenBan, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtMaBan, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtMa, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel20Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTenBan, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblIDBan, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel46)
                 .addGap(348, 348, 348))
@@ -1384,22 +1389,22 @@ public class QuanLyView extends javax.swing.JPanel {
                     .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addComponent(jLabel46)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
-                        .addGap(30, 30, 30))
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addComponent(txtMaBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTenBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtTenBan))
-                .addGap(42, 42, 42)
+                    .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtMa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cboBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
+                .addGap(64, 64, 64))
         );
 
         jPanel22.setBackground(new java.awt.Color(102, 204, 255));
@@ -1414,7 +1419,7 @@ public class QuanLyView extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "STT", "Mã Bàn", "Tên Bàn", "Trạng thái"
+                "STT", "Mã", "Tên Bàn", "Trạng thái"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1506,7 +1511,7 @@ public class QuanLyView extends javax.swing.JPanel {
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1829,7 +1834,7 @@ public class QuanLyView extends javax.swing.JPanel {
     }//GEN-LAST:event_btnThemKMActionPerformed
 
     private void btnSuaKMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaKMActionPerformed
-        int row = tblKhachHang.getSelectedRow();
+        int row = tblKhuyenMai.getSelectedRow();
         if (row == -1) {
             JOptionPane.showMessageDialog(this, "Chọn một dòng để sửa!");
             return;
@@ -2072,7 +2077,7 @@ public class QuanLyView extends javax.swing.JPanel {
     private javax.swing.JTextField txtGia;
     private javax.swing.JTextField txtGiaDa;
     private javax.swing.JTextField txtGiaDuong;
-    private javax.swing.JTextField txtMaBan;
+    private javax.swing.JTextField txtMa;
     private javax.swing.JTextField txtMaDa;
     private javax.swing.JTextField txtMaDuong;
     private javax.swing.JTextField txtMaKH;
@@ -2097,7 +2102,7 @@ public class QuanLyView extends javax.swing.JPanel {
                 mdg.getMa(),
                 mdg.getTen(),
                 mdg.getGia(),
-                mdg.getTrangThai()
+                mdg.getTrangThai()== 0 ? "Còn bán" : "Ngừng kinh doanh"
             };
             
             model.addRow(rowData);
@@ -2113,7 +2118,7 @@ public class QuanLyView extends javax.swing.JPanel {
                 t.getMa(),
                 t.getTen(),
                 t.getGia(),
-                t.getTrangThai()
+                t.getTrangThai()== 0 ? "Còn bán" : "Ngừng kinh doanh"
             };
             
             model.addRow(rowData);
@@ -2129,7 +2134,7 @@ public class QuanLyView extends javax.swing.JPanel {
                 md.getMa(),
                 md.getTen(),
                 md.getGia(),
-                md.getTrangThai()
+                md.getTrangThai()== 0 ? "Còn bán" : "Ngừng kinh doanh"
             };
             
             model.addRow(rowData);
@@ -2297,7 +2302,7 @@ public class QuanLyView extends javax.swing.JPanel {
                 k.getDiaChi(),
                 k.getDiem(),
                 k.getGhiChu(),
-                k.getTrangThai()
+                k.getTrangThai()== 0 ? "Còn hoạt động" : "Ngừng hoạt động"
             };
             
             model.addRow(rowData);
@@ -2310,7 +2315,7 @@ public class QuanLyView extends javax.swing.JPanel {
         txtTenKH.setText("");
         txtSĐT.setText("");
         txtEmailKH.setText("");
-        
+        jdsNgaySinh.setCalendar(null);
         txtDiachi.setText("");
         lblDiem.setText("-");
         txtGhiChuKH.setText("");
@@ -2377,16 +2382,13 @@ public class QuanLyView extends javax.swing.JPanel {
                 km.getTienKhuyenMai(),
                 km.getPhamTramKhuyenMai(),
                 km.getGhiChu(),
-                km.getTrangThai()
+                km.getTrangThai() == 0 ? "Còn hạn" : "Hết hạn",
             };
             
             model.addRow(rowData);
         }
     }
     
-    private void clearFromKM() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     private void setDisplayKM(KhuyenMai km) {
         lblIDKhuyenMai.setText(km.getId());
@@ -2406,14 +2408,15 @@ public class QuanLyView extends javax.swing.JPanel {
         String ma = this.txtMaKM.getText().trim();
         String ten = this.txtTenKM.getText().trim();
         Date ngayTao = this.jdsNgayTao.getDate();
-        int kieuKhuyenMai = this.cboKM.getSelectedIndex();
+        int kieuKhuyenMai =   this.cboKM.getSelectedIndex();
         String phanTramKhuyenMaiStr = this.txtPhanTramKM.getText().trim();
         String tienKhuyenMaiStr = this.txtTienKM.getText().trim();
-        String ghiChu = this.txtGhiChuKH.getText().trim();
-        int trangThai = this.cboTrangThaiKH.getSelectedIndex();
+        String ghiChu = this.txtGhiChuKM.getText().trim();
+        int trangThai =   this.cboTrangThaiKM.getSelectedIndex();
         
-       int tienKhuyenMai;
+       float tienKhuyenMai;
        int phamTramKhuyenMai;
+       
 
 //            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //            date = new SimpleDateFormat("yyyy-MM-dd").parse(ngaySinh);
@@ -2430,7 +2433,7 @@ public class QuanLyView extends javax.swing.JPanel {
         }
         
         try {
-            tienKhuyenMai = Integer.parseInt(tienKhuyenMaiStr);
+            tienKhuyenMai = Float.parseFloat(tienKhuyenMaiStr);
             
             if (tienKhuyenMai < 0) {
                 JOptionPane.showMessageDialog(this, "tien km phai là số dương");
@@ -2454,9 +2457,7 @@ public class QuanLyView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "phan tram km phải là số.");
             return null;
         }
-        
-       
-        
+              
         KhuyenMai km = new KhuyenMai(id, ma, ten, ngayTao, kieuKhuyenMai, tienKhuyenMai, phamTramKhuyenMai, ghiChu, trangThai);
         return km;
     }
@@ -2469,7 +2470,7 @@ public class QuanLyView extends javax.swing.JPanel {
         txtPhanTramKM.setText("");
         txtGhiChuKM.setText("");
         cboTrangThaiKM.setSelectedIndex(0);
-        jdsNgayTao.setDateFormatString("");
+        jdsNgayTao.setCalendar(null);
         
     }
     
@@ -2481,7 +2482,9 @@ public class QuanLyView extends javax.swing.JPanel {
                 b.getId(),
                 b.getMa(),
                 b.getTen(),
-                b.getTrangThai(),};
+                
+                b.getTrangThai()== 0 ? "Đang sử dụng" : "Chưa sử dụng",
+            };
             
             model.addRow(rowData);
         }
@@ -2489,14 +2492,14 @@ public class QuanLyView extends javax.swing.JPanel {
     
     private void clearFormBan() {
         lblIDBan.setText("-");
-        txtMaBan.setText("");
+        txtMa.setText("");
         txtTenBan.setText("");
         cboBan.setSelectedIndex(0);
     }
     
     private void setDisplayBan(Ban b) {
         lblIDBan.setText(b.getId());
-        txtMaBan.setText(b.getMa());
+        txtMa.setText(b.getMa());
         txtTenBan.setText(b.getTen());
         
         cboBan.setSelectedIndex(b.getTrangThai());
@@ -2504,7 +2507,7 @@ public class QuanLyView extends javax.swing.JPanel {
     
     private Ban getFormDataBan() {
         String id = lblIDBan.getText().trim();
-        String ma = txtMaBan.getText().trim();
+        String ma = txtMa.getText().trim();
         String ten = txtTenBan.getText().trim();
         
         int trangThai = cboBan.getSelectedIndex();

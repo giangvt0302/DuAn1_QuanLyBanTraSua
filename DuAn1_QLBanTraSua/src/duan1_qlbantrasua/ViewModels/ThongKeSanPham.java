@@ -15,12 +15,12 @@ public class ThongKeSanPham {
     private double gia;
     private int soLuongBan;
     private double  doanhThu;
-    private String trangThai;
+    private int trangThai;
 
     public ThongKeSanPham() {
     }
 
-    public ThongKeSanPham(String ma, String ten, double gia, int soLuongBan, double doanhThu, String trangThai) {
+    public ThongKeSanPham(String ma, String ten, double gia, int soLuongBan, double doanhThu, int trangThai) {
         this.ma = ma;
         this.ten = ten;
         this.gia = gia;
@@ -31,7 +31,7 @@ public class ThongKeSanPham {
 
     
     
-    public ThongKeSanPham(String ma, String ten, double gia, int soLuongBan, String trangThai) {
+    public ThongKeSanPham(String ma, String ten, double gia, int soLuongBan, int trangThai) {
         this.ma = ma;
         this.ten = ten;
         this.gia = gia;
@@ -71,15 +71,11 @@ public class ThongKeSanPham {
         this.soLuongBan = soLuongBan;
     }
 
-    public String getTrangThai() {
-        if (trangThai.equals(0)) {
-            return "Còn kinh doanh";
-        } else {
-            return "Ngừng bán";
-        }
+    public int getTrangThai() {
+       return trangThai;
     }
 
-    public void setTrangThai(String trangThai) {
+    public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
 

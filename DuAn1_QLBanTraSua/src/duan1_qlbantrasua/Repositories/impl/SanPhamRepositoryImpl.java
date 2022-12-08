@@ -213,11 +213,11 @@ public class SanPhamRepositoryImpl implements SanPhamRepository {
         try {
             Connection conn = DBConnection.getConnection();
 
-            String query = "Select  san_pham.ma,san_pham.ten,san_pham.gia, "
-                    + "sum(hoa_don_chi_tiet.so_luong) as'so_luong_ban',san_pham.trang_thai\n"
-                    + "from  hoa_don_chi_tiet inner join san_pham "
-                    + "on hoa_don_chi_tiet.id_san_pham=san_pham.id \n"
-                    + "group by san_pham.ma,san_pham.ten,san_pham.gia,san_pham.trang_thai";
+            String query = "Select  san_pham.ma,san_pham.ten,san_pham.gia, \n" +
+"                    sum(gio_hang.so_luong_sp) as'so_luong_ban',san_pham.trang_thai\n" +
+"                    from  gio_hang inner join san_pham \n" +
+"                    on gio_hang.id_san_pham=san_pham.id \n" +
+"                    group by san_pham.ma,san_pham.ten,san_pham.gia,san_pham.trang_thai";
             PreparedStatement ps = conn.prepareStatement(query);
 
             
@@ -230,7 +230,81 @@ public class SanPhamRepositoryImpl implements SanPhamRepository {
                 String ten = rs.getString("ten");
                 Double gia = rs.getDouble("gia");
                 int soLuongBan = rs.getInt("so_luong_ban");
-                String trangThai = rs.getString("trang_thai");
+                int trangThai = rs.getInt("trang_thai");
+
+                ThongKeSanPham tk = new ThongKeSanPham(ma, ten, gia, soLuongBan, trangThai);
+                listKT.add(tk);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
+        return listKT;
+    }
+
+    @Override
+    public ArrayList<ThongKeSanPham> TKSanPhamTOPSLBNhieu() {
+        ArrayList<ThongKeSanPham> listKT = new ArrayList<>();
+        try {
+            Connection conn = DBConnection.getConnection();
+
+            String query = "Select top(5)  san_pham.ma,san_pham.ten,san_pham.gia, \n" +
+"                    sum(gio_hang.so_luong_sp) as'so_luong_ban',san_pham.trang_thai\n" +
+"                    from  gio_hang inner join san_pham \n" +
+"                    on gio_hang.id_san_pham=san_pham.id \n" +
+"                    group by san_pham.ma,san_pham.ten,san_pham.gia,san_pham.trang_thai "
+                    + "order by 'so_luong_ban' desc";
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            
+
+            ps.execute();
+
+            ResultSet rs = ps.getResultSet();
+            while (rs.next() == true) {
+                String ma = rs.getString("ma");
+                String ten = rs.getString("ten");
+                Double gia = rs.getDouble("gia");
+                int soLuongBan = rs.getInt("so_luong_ban");
+                int trangThai = rs.getInt("trang_thai");
+
+                ThongKeSanPham tk = new ThongKeSanPham(ma, ten, gia, soLuongBan, trangThai);
+                listKT.add(tk);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
+        return listKT;
+    }
+
+    @Override
+    public ArrayList<ThongKeSanPham> TKSanPhamTOPSLBIt() {
+        ArrayList<ThongKeSanPham> listKT = new ArrayList<>();
+        try {
+            Connection conn = DBConnection.getConnection();
+
+            String query = "Select top(5)  san_pham.ma,san_pham.ten,san_pham.gia, \n" +
+"                    sum(gio_hang.so_luong_sp) as'so_luong_ban',san_pham.trang_thai\n" +
+"                    from  gio_hang inner join san_pham \n" +
+"                    on gio_hang.id_san_pham=san_pham.id \n" +
+"                    group by san_pham.ma,san_pham.ten,san_pham.gia,san_pham.trang_thai "
+                    + "order by 'so_luong_ban' asc";
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            
+
+            ps.execute();
+
+            ResultSet rs = ps.getResultSet();
+            while (rs.next() == true) {
+                String ma = rs.getString("ma");
+                String ten = rs.getString("ten");
+                Double gia = rs.getDouble("gia");
+                int soLuongBan = rs.getInt("so_luong_ban");
+                int trangThai = rs.getInt("trang_thai");
 
                 ThongKeSanPham tk = new ThongKeSanPham(ma, ten, gia, soLuongBan, trangThai);
                 listKT.add(tk);

@@ -79,5 +79,15 @@ public class SanPhamServiceImpl implements SanPhamService{
     public ArrayList<ThongKeSanPham> getListTKSanPham() {
         return sanPhamRepository.TKSanPham();
     }
+
+    @Override
+    public ArrayList<ThongKeSanPham> getListTKSanPhamTOPSLBNhieu() {
+        return sanPhamRepository.TKSanPhamTOPSLBNhieu();
+    }
+
+    @Override
+    public ArrayList<ThongKeSanPham> getListTKSanPhamTOPSLBIt() {
+        return sanPhamRepository.TKSanPhamTOPSLBIt();
+    }
     
 }

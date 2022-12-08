@@ -62,10 +62,11 @@ public class KhachHangRespositoryimpl implements KhachHangRespository {
                 + " values (?,?,?,?,?,?,?,?,?)\n";
                
         try (Connection con = DBConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query)) {
+            java.sql.Date sqlDate1 = new java.sql.Date(k.getNgaySinhl().getTime());
             ps.setString(1, k.getMa());
             ps.setString(2, k.getHoVaTen());
             ps.setString(3, k.getsDT());
-            ps.setDate(4, (java.sql.Date) k.getNgaySinhl());
+            ps.setDate(4, sqlDate1);
             ps.setString(5, k.getEmail());
             ps.setString(6, k.getDiaChi());
             ps.setInt(7, k.getDiem());
@@ -86,10 +87,11 @@ public class KhachHangRespositoryimpl implements KhachHangRespository {
                 + ",email=?,dia_chi=?,ghi_chu=?,trang_thai=?\n"
                 + "where id=?" ;
         try (Connection con = DBConnection.getConnection(); PreparedStatement ps = con.prepareStatement(query)) {
+            java.sql.Date sqlDate1 = new java.sql.Date(k.getNgaySinhl().getTime());
             ps.setString(1, k.getMa());
             ps.setString(2, k.getHoVaTen());
             ps.setString(3, k.getsDT());
-            ps.setDate(4, (java.sql.Date) k.getNgaySinhl());
+            ps.setDate(4, sqlDate1);
             ps.setString(5, k.getEmail());
             ps.setString(6, k.getDiaChi());
             ps.setString(7, k.getGhiChu());
