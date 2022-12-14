@@ -2157,6 +2157,13 @@ public class QuanLyView extends javax.swing.JPanel {
             return null;
         }
         
+        for(MucDuong mdg : this.mdgs.all()){
+            if(ma.equalsIgnoreCase(mdg.getMa())){
+               JOptionPane.showMessageDialog(this, "Mã không được trùng");
+            return null;
+            }
+        }
+        
         try {
             gia = Double.parseDouble(giaStr);
             
@@ -2214,6 +2221,13 @@ public class QuanLyView extends javax.swing.JPanel {
             return null;
         }
         
+        for(MucDa md : this.mds.all()){
+            if(ma.equalsIgnoreCase(md.getMa())){
+               JOptionPane.showMessageDialog(this, "Mã không được trùng");
+            return null;
+            }
+        }
+        
         try {
             gia = Double.parseDouble(giaStr);
             
@@ -2245,6 +2259,13 @@ public class QuanLyView extends javax.swing.JPanel {
                 || giaStr.length() == 0) {
             JOptionPane.showMessageDialog(this, "Không được để trống");
             return null;
+        }
+        
+        for(Topping t: this.ts.all()){
+            if(ma.equalsIgnoreCase(t.getMa())){
+               JOptionPane.showMessageDialog(this, "Mã không được trùng");
+            return null;
+            }
         }
         
         try {
@@ -2359,6 +2380,13 @@ public class QuanLyView extends javax.swing.JPanel {
             return null;
         }
         
+        for(KhachHang kh : this.khs.getList()){
+            if(ma.equalsIgnoreCase(kh.getMa())){
+               JOptionPane.showMessageDialog(this, "Mã không được trùng");
+            return null;
+            }
+        }
+        
         Matcher matcher = Pattern.compile(P_EMAIL).matcher(txtEmailKH.getText());
         if (!matcher.matches()) {
             JOptionPane.showMessageDialog(this, "Email sai định dạng");
@@ -2430,6 +2458,14 @@ public class QuanLyView extends javax.swing.JPanel {
                 || phanTramKhuyenMaiStr.length()==0) {
             JOptionPane.showMessageDialog(this, "Không được để trống");
             return null;
+        }
+        
+        
+        for(KhuyenMai km : this.kms.getList()){
+            if(ma.equalsIgnoreCase(km.getTen())){
+               JOptionPane.showMessageDialog(this, "Mã không được trùng");
+            return null;
+            }
         }
         
         try {
@@ -2516,6 +2552,13 @@ public class QuanLyView extends javax.swing.JPanel {
                 || ten.length() == 0) {
             JOptionPane.showMessageDialog(this, "Không được để trống");
             return null;
+        }
+        
+        for(Ban b : this.bs.all()){
+            if(ma.equalsIgnoreCase(b.getMa())){
+               JOptionPane.showMessageDialog(this, "Mã không được trùng");
+            return null;
+            }
         }
         
         Ban b = new Ban(id, ma, ten, trangThai);

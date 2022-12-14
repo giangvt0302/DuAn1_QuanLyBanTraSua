@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Giang/OneDrive/Máy%20tính/ProJect_1/DuAn1QuanLyBanTraSua/DuAn1_QLBanTraSua/src/duan1_qlbantrasua/Repositories/impl/HoaDonRepositoryImpl.java</file>
-            <file>file:/C:/Users/Giang/OneDrive/Máy%20tính/ProJect_1/DuAn1QuanLyBanTraSua/DuAn1_QLBanTraSua/src/duan1_qlbantrasua/Services/impl/HoaDonServiceImpl.java</file>
-            <file>file:/C:/Users/Giang/OneDrive/Máy%20tính/ProJect_1/DuAn1QuanLyBanTraSua/DuAn1_QLBanTraSua/src/duan1_qlbantrasua/Repositories/impl/KhuyenMaiRespositoryimpl.java</file>
-            <file>file:/C:/Users/Giang/OneDrive/Máy%20tính/ProJect_1/DuAn1QuanLyBanTraSua/DuAn1_QLBanTraSua/src/duan1_qlbantrasua/Services/HoaDonService.java</file>
-            <file>file:/C:/Users/Giang/OneDrive/Máy%20tính/ProJect_1/DuAn1QuanLyBanTraSua/DuAn1_QLBanTraSua/src/duan1_qlbantrasua/Views/HoaDonView.java</file>
+            <file>file:/C:/Users/Giang/OneDrive/Máy%20tính/ProJect_1/DuAn1QuanLyBanTraSua/DuAn1_QLBanTraSua/src/duan1_qlbantrasua/Views/Login.java</file>
+            <file>file:/C:/Users/Giang/OneDrive/Máy%20tính/ProJect_1/DuAn1QuanLyBanTraSua/DuAn1_QLBanTraSua/src/duan1_qlbantrasua/Views/QuanLyDoanhSo.java</file>
+            <file>file:/C:/Users/Giang/OneDrive/Máy%20tính/ProJect_1/DuAn1QuanLyBanTraSua/DuAn1_QLBanTraSua/src/duan1_qlbantrasua/Views/QuanLyView.java</file>
+            <file>file:/C:/Users/Giang/OneDrive/Máy%20tính/ProJect_1/DuAn1QuanLyBanTraSua/DuAn1_QLBanTraSua/src/duan1_qlbantrasua/Repositories/impl/KhachHangRespositoryimpl.java</file>
         </group>
     </open-files>
 </project-private>
