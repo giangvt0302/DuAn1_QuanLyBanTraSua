@@ -433,7 +433,7 @@ public class QuanLyDoanhSo extends javax.swing.JPanel {
         });
 
         buttonGroup1.add(rdoDatt);
-        rdoDatt.setText("Còn kinh doanh");
+        rdoDatt.setText("Còn bán");
         rdoDatt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdoDattActionPerformed(evt);
@@ -601,7 +601,7 @@ public class QuanLyDoanhSo extends javax.swing.JPanel {
 
     private void rdoDattActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoDattActionPerformed
         loadTableTK();
-        loc("Còn kinh doanh");
+        loc("Còn bán");
         // TODO add your handling code here:
     }//GEN-LAST:event_rdoDattActionPerformed
 
@@ -667,7 +667,8 @@ public class QuanLyDoanhSo extends javax.swing.JPanel {
             //System.setProperty("log4j.configurationFile", "./path_to_the_log4j2_config_file/log4j2.xml");
 
             //Logger log = LogManager.getLogger(LogExample.class.getName());
-            JFileChooser j = new JFileChooser();
+            JOptionPane.showConfirmDialog(this, "Ban có muốn xuất thống kê");
+            JFileChooser j = new JFileChooser("C:\\Users\\Giang\\OneDrive\\Máy tính\\ProJect_1\\DuAn1QuanLyBanTraSua\\Execl");
             j.setDialogTitle("Hãy chọn địa chỉ muốn xuất file !");
             int rs = j.showSaveDialog(null);
             if (rs == JFileChooser.APPROVE_OPTION) {
@@ -749,7 +750,9 @@ public class QuanLyDoanhSo extends javax.swing.JPanel {
                     ex.printStackTrace();
                 }
             }
+            JOptionPane.showMessageDialog(this, "Xuất thống kê thành công");
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Lỗi xuất");
             e.printStackTrace();
         }
         // TODO add your handling code here:
@@ -813,7 +816,7 @@ public class QuanLyDoanhSo extends javax.swing.JPanel {
                 tk.getGia(),
                 tk.getSoLuongBan(),
                 tk.getDoanhThu(tk.getGia(), tk.getSoLuongBan()),
-                tk.getTrangThai() == 0 ? "Còn bán" : "Ngừng kinh doanh"
+                tk.getTrangThai() == 0 ? "Còn bán" : "Ngừng bán"
             };
 
             model.addRow(rowData);

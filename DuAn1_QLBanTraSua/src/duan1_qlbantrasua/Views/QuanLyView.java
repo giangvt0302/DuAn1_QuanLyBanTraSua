@@ -34,8 +34,9 @@ import javax.swing.table.DefaultTableModel;
  * @author TrungVD
  */
 public class QuanLyView extends javax.swing.JPanel {
-    
+
     private static final String P_EMAIL = "^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$";
+    String reg = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
     private MucDaService mds;
     private MucDuongService mdgs;
     private ToppingService ts;
@@ -48,19 +49,20 @@ public class QuanLyView extends javax.swing.JPanel {
     private ArrayList<KhachHang> listKhachHang;
     private ArrayList<KhuyenMai> listKhuyenMai;
     private ArrayList<Ban> listBan;
+
     /**
      * Creates new form QuanLyView
      */
     public QuanLyView() {
         initComponents();
-        
+
         this.mds = new MucDaServiceImpl();
         this.mdgs = new MucDuongServiceImpl();
         this.ts = new ToppingServiceImpl();
         this.khs = new KhachHangServiceimpl();
         this.kms = new KhuyenMaiServiceimpl();
         this.bs = new BanServiceImpl();
-        
+
         loadTableMucDuong();
         loadTableMucDa();
         loadTableTopping();
@@ -2102,13 +2104,13 @@ public class QuanLyView extends javax.swing.JPanel {
                 mdg.getMa(),
                 mdg.getTen(),
                 mdg.getGia(),
-                mdg.getTrangThai()== 0 ? "Còn bán" : "Ngừng kinh doanh"
+                mdg.getTrangThai() == 0 ? "Còn bán" : "Ngừng kinh doanh"
             };
-            
+
             model.addRow(rowData);
         }
     }
-    
+
     private void loadTableTopping() {
         DefaultTableModel model = (DefaultTableModel) this.tblTopping.getModel();
         model.setRowCount(0);
@@ -2118,13 +2120,13 @@ public class QuanLyView extends javax.swing.JPanel {
                 t.getMa(),
                 t.getTen(),
                 t.getGia(),
-                t.getTrangThai()== 0 ? "Còn bán" : "Ngừng kinh doanh"
+                t.getTrangThai() == 0 ? "Còn bán" : "Ngừng kinh doanh"
             };
-            
+
             model.addRow(rowData);
         }
     }
-    
+
     private void loadTableMucDa() {
         DefaultTableModel model = (DefaultTableModel) this.tblDa.getModel();
         model.setRowCount(0);
@@ -2134,39 +2136,39 @@ public class QuanLyView extends javax.swing.JPanel {
                 md.getMa(),
                 md.getTen(),
                 md.getGia(),
-                md.getTrangThai()== 0 ? "Còn bán" : "Ngừng kinh doanh"
+                md.getTrangThai() == 0 ? "Còn bán" : "Ngừng kinh doanh"
             };
-            
+
             model.addRow(rowData);
         }
     }
-    
+
     private MucDuong getFormDataDuong() {
         String id = this.lblIdDuong.getText().trim();
         String ma = this.txtMaDuong.getText().trim();
         String ten = this.txtTenDuong.getText().trim();
         String giaStr = this.txtGiaDuong.getText().trim();
         int trangThai = this.cboTrangThaiDuong.getSelectedIndex();
-        
+
         double gia = 0;
-        
+
         if (ma.length() == 0
                 || ten.length() == 0
                 || giaStr.length() == 0) {
             JOptionPane.showMessageDialog(this, "Không được để trống");
             return null;
         }
-        
-        for(MucDuong mdg : this.mdgs.all()){
-            if(ma.equalsIgnoreCase(mdg.getMa())){
-               JOptionPane.showMessageDialog(this, "Mã không được trùng");
-            return null;
+
+        for (MucDuong mdg : this.mdgs.all()) {
+            if (ma.equalsIgnoreCase(mdg.getMa())) {
+                JOptionPane.showMessageDialog(this, "Mã không được trùng");
+                return null;
             }
         }
-        
+
         try {
             gia = Double.parseDouble(giaStr);
-            
+
             if (gia < 0) {
                 JOptionPane.showMessageDialog(this, "Gía phai là số dương");
                 return null;
@@ -2176,11 +2178,11 @@ public class QuanLyView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Gía phải là số.");
             return null;
         }
-        
+
         MucDuong mdg = new MucDuong(id, ma, ten, gia, trangThai);
         return mdg;
     }
-    
+
     private void clearFormDa() {
         lblIdDa.setText("-");
         txtMaDa.setText("");
@@ -2188,7 +2190,7 @@ public class QuanLyView extends javax.swing.JPanel {
         txtGiaDa.setText("");
         cboTrangThaiDa.setSelectedIndex(0);
     }
-    
+
     private void clearFormDuong() {
         lblIdDuong.setText("-");
         txtMaDuong.setText("");
@@ -2196,7 +2198,7 @@ public class QuanLyView extends javax.swing.JPanel {
         txtGiaDuong.setText("");
         cboTrangThaiDuong.setSelectedIndex(0);
     }
-    
+
     private void clearFormTopping() {
         lblIdTopping.setText("-");
         txtMaTopping.setText("");
@@ -2204,33 +2206,33 @@ public class QuanLyView extends javax.swing.JPanel {
         txtGia.setText("");
         cboTrangThaiTopping.setSelectedIndex(0);
     }
-    
+
     private MucDa getFormDataDa() {
         String id = this.lblIdDa.getText().trim();
         String ma = this.txtMaDa.getText().trim();
         String ten = this.txtTenDa.getText().trim();
         String giaStr = this.txtGiaDa.getText().trim();
         int trangThai = this.cboTrangThaiDa.getSelectedIndex();
-        
+
         double gia = 0;
-        
+
         if (ma.length() == 0
                 || ten.length() == 0
                 || giaStr.length() == 0) {
             JOptionPane.showMessageDialog(this, "Không được để trống");
             return null;
         }
-        
-        for(MucDa md : this.mds.all()){
-            if(ma.equalsIgnoreCase(md.getMa())){
-               JOptionPane.showMessageDialog(this, "Mã không được trùng");
-            return null;
+
+        for (MucDa md : this.mds.all()) {
+            if (ma.equalsIgnoreCase(md.getMa())) {
+                JOptionPane.showMessageDialog(this, "Mã không được trùng");
+                return null;
             }
         }
-        
+
         try {
             gia = Double.parseDouble(giaStr);
-            
+
             if (gia < 0) {
                 JOptionPane.showMessageDialog(this, "Gía phai là số dương");
                 return null;
@@ -2240,37 +2242,37 @@ public class QuanLyView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Gía phải là số.");
             return null;
         }
-        
+
         MucDa md = new MucDa(id, ma, ten, gia, trangThai);
         return md;
     }
-    
+
     private Topping getFormDataTopping() {
         String id = this.lblIdTopping.getText().trim();
         String ma = this.txtMaTopping.getText().trim();
         String ten = this.txtTenTopping.getText().trim();
         String giaStr = this.txtGia.getText().trim();
         int trangThai = this.cboTrangThaiTopping.getSelectedIndex();
-        
+
         double gia = 0;
-        
+
         if (ma.length() == 0
                 || ten.length() == 0
                 || giaStr.length() == 0) {
             JOptionPane.showMessageDialog(this, "Không được để trống");
             return null;
         }
-        
-        for(Topping t: this.ts.all()){
-            if(ma.equalsIgnoreCase(t.getMa())){
-               JOptionPane.showMessageDialog(this, "Mã không được trùng");
-            return null;
+
+        for (Topping t : this.ts.all()) {
+            if (ma.equalsIgnoreCase(t.getMa())) {
+                JOptionPane.showMessageDialog(this, "Mã không được trùng");
+                return null;
             }
         }
-        
+
         try {
             gia = Double.parseDouble(giaStr);
-            
+
             if (gia < 0) {
                 JOptionPane.showMessageDialog(this, "Gía phai là số dương");
                 return null;
@@ -2280,11 +2282,11 @@ public class QuanLyView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Gía phải là số.");
             return null;
         }
-        
+
         Topping t = new Topping(id, ma, ten, gia, trangThai);
         return t;
     }
-    
+
     private void setDisplayDuong(MucDuong mdg) {
         lblIdDuong.setText(mdg.getId());
         txtMaDuong.setText(mdg.getMa());
@@ -2292,23 +2294,23 @@ public class QuanLyView extends javax.swing.JPanel {
         txtGiaDuong.setText(mdg.getGia() + "");
         cboTrangThaiDuong.setSelectedIndex(mdg.getTrangThai());
     }
-    
+
     private void setDisplayDa(MucDa md) {
         lblIdDa.setText(md.getId());
         txtMaDa.setText(md.getMa());
         txtTenDa.setText(md.getTen());
-        txtGiaDa.setText(md.getGia()+"");
+        txtGiaDa.setText(md.getGia() + "");
         cboTrangThaiDa.setSelectedItem(md.getTrangThai());
     }
-    
+
     private void setDisplayTopping(Topping t) {
-     lblIdTopping.setText(t.getId());
+        lblIdTopping.setText(t.getId());
         txtMaTopping.setText(t.getMa());
         txtTenTopping.setText(t.getTen());
-        txtGia.setText(t.getGia()+"");
+        txtGia.setText(t.getGia() + "");
         cboTrangThaiTopping.setSelectedItem(t.getTrangThai());
     }
-    
+
     private void loadTableKhachHang() {
         DefaultTableModel model = (DefaultTableModel) this.tblKhachHang.getModel();
         model.setRowCount(0);
@@ -2323,13 +2325,13 @@ public class QuanLyView extends javax.swing.JPanel {
                 k.getDiaChi(),
                 k.getDiem(),
                 k.getGhiChu(),
-                k.getTrangThai()== 0 ? "Còn hoạt động" : "Ngừng hoạt động"
+                k.getTrangThai() == 0 ? "Còn hoạt động" : "Ngừng hoạt động"
             };
-            
+
             model.addRow(rowData);
         }
     }
-    
+
     private void clearFormKH() {
         lblIDKhachHang.setText("-");
         txtMaKH.setText("");
@@ -2342,7 +2344,7 @@ public class QuanLyView extends javax.swing.JPanel {
         txtGhiChuKH.setText("");
         cboTrangThaiKH.setSelectedIndex(0);
     }
-    
+
     private void setDisplayKH(KhachHang k) {
         lblIDKhachHang.setText(k.getId());
         txtMaKH.setText(k.getMa());
@@ -2354,9 +2356,9 @@ public class QuanLyView extends javax.swing.JPanel {
         lblDiem.setText(k.getDiem() + "");
         txtGhiChuKH.setText(k.getGhiChu());
         cboTrangThaiKH.setSelectedIndex(k.getTrangThai());
-        
+
     }
-    
+
     private KhachHang getFormDataKhachHang() {
         String id = this.lblIDKhachHang.getText().trim();
         String ma = this.txtMaKH.getText().trim();
@@ -2365,12 +2367,12 @@ public class QuanLyView extends javax.swing.JPanel {
         Date ngaySinh = jdsNgaySinh.getDate();
         String email = this.txtEmailKH.getText().trim();
         String diaChi = this.txtDiachi.getText().trim();
-        
+
         String ghiChu = this.txtGhiChuKH.getText().trim();
         int trangThai = this.cboTrangThaiKH.getSelectedIndex();
-        
+
         int diem = 0;
-        
+
         if (ma.length() == 0
                 || hoVaTen.length() == 0
                 || sDT.length() == 0
@@ -2379,24 +2381,30 @@ public class QuanLyView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Không được để trống");
             return null;
         }
-        
-        for(KhachHang kh : this.khs.getList()){
-            if(ma.equalsIgnoreCase(kh.getMa())){
-               JOptionPane.showMessageDialog(this, "Mã không được trùng");
-            return null;
+
+        for (KhachHang kh : this.khs.getList()) {
+            if (ma.equalsIgnoreCase(kh.getMa())) {
+                JOptionPane.showMessageDialog(this, "Mã không được trùng");
+                return null;
             }
         }
-        
-        Matcher matcher = Pattern.compile(P_EMAIL).matcher(txtEmailKH.getText());
-        if (!matcher.matches()) {
+
+        Matcher matcher1 = Pattern.compile(reg).matcher(txtSĐT.getText());
+        if (!matcher1.matches()) {
+            JOptionPane.showMessageDialog(this, "SDT sai định dạng");
+            return null;
+        }
+
+        Matcher matcher2 = Pattern.compile(P_EMAIL).matcher(txtEmailKH.getText());
+        if (!matcher2.matches()) {
             JOptionPane.showMessageDialog(this, "Email sai định dạng");
             return null;
         }
-        
+
         KhachHang k = new KhachHang(id, ma, hoVaTen, sDT, ngaySinh, email, diaChi, diem, ghiChu, trangThai);
         return k;
     }
-    
+
     private void loadTableKhuyenMai() {
         DefaultTableModel model = (DefaultTableModel) this.tblKhuyenMai.getModel();
         model.setRowCount(0);
@@ -2404,47 +2412,44 @@ public class QuanLyView extends javax.swing.JPanel {
             Object[] rowData = {
                 km.getId(),
                 km.getMa(),
-                km.getTen(),               
+                km.getTen(),
                 km.getNgayTao(),
                 km.getKieuKhuyenMai(),
                 km.getTienKhuyenMai(),
                 km.getPhamTramKhuyenMai(),
                 km.getGhiChu(),
-                km.getTrangThai() == 0 ? "Còn hạn" : "Hết hạn",
-            };
-            
+                km.getTrangThai() == 0 ? "Còn hạn" : "Hết hạn",};
+
             model.addRow(rowData);
         }
     }
-    
-    
+
     private void setDisplayKM(KhuyenMai km) {
         lblIDKhuyenMai.setText(km.getId());
         txtMaKM.setText(km.getMa());
         txtTenKM.setText(km.getTen());
         cboTrangThaiKM.setSelectedIndex(km.getKieuKhuyenMai());
         jdsNgayTao.setDate(km.getNgayTao());
-        txtTienKM.setText(km.getTienKhuyenMai()+"");
-        txtPhanTramKM.setText(km.getPhamTramKhuyenMai()+"");
+        txtTienKM.setText(km.getTienKhuyenMai() + "");
+        txtPhanTramKM.setText(km.getPhamTramKhuyenMai() + "");
         txtGhiChuKM.setText(km.getGhiChu());
         cboTrangThaiKM.setSelectedIndex(km.getTrangThai());
-        
+
     }
-    
+
     private KhuyenMai getFormDataKhuyenMai() {
         String id = this.lblIDKhuyenMai.getText().trim();
         String ma = this.txtMaKM.getText().trim();
         String ten = this.txtTenKM.getText().trim();
         Date ngayTao = this.jdsNgayTao.getDate();
-        int kieuKhuyenMai =   this.cboKM.getSelectedIndex();
+        int kieuKhuyenMai = this.cboKM.getSelectedIndex();
         String phanTramKhuyenMaiStr = this.txtPhanTramKM.getText().trim();
         String tienKhuyenMaiStr = this.txtTienKM.getText().trim();
         String ghiChu = this.txtGhiChuKM.getText().trim();
-        int trangThai =   this.cboTrangThaiKM.getSelectedIndex();
-        
-       float tienKhuyenMai;
-       int phamTramKhuyenMai;
-       
+        int trangThai = this.cboTrangThaiKM.getSelectedIndex();
+
+        float tienKhuyenMai;
+        int phamTramKhuyenMai;
 
 //            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //            date = new SimpleDateFormat("yyyy-MM-dd").parse(ngaySinh);
@@ -2455,22 +2460,21 @@ public class QuanLyView extends javax.swing.JPanel {
         if (ma.length() == 0
                 || ten.length() == 0
                 || tienKhuyenMaiStr.length() == 0
-                || phanTramKhuyenMaiStr.length()==0) {
+                || phanTramKhuyenMaiStr.length() == 0) {
             JOptionPane.showMessageDialog(this, "Không được để trống");
             return null;
         }
-        
-        
-        for(KhuyenMai km : this.kms.getList()){
-            if(ma.equalsIgnoreCase(km.getTen())){
-               JOptionPane.showMessageDialog(this, "Mã không được trùng");
-            return null;
+
+        for (KhuyenMai km : this.kms.getList()) {
+            if (ma.equalsIgnoreCase(km.getTen())) {
+                JOptionPane.showMessageDialog(this, "Mã không được trùng");
+                return null;
             }
         }
-        
+
         try {
             tienKhuyenMai = Float.parseFloat(tienKhuyenMaiStr);
-            
+
             if (tienKhuyenMai < 0) {
                 JOptionPane.showMessageDialog(this, "tien km phai là số dương");
                 return null;
@@ -2480,10 +2484,10 @@ public class QuanLyView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "tien km phải là số.");
             return null;
         }
-        
-         try {
+
+        try {
             phamTramKhuyenMai = Integer.parseInt(phanTramKhuyenMaiStr);
-            
+
             if (phamTramKhuyenMai < 0) {
                 JOptionPane.showMessageDialog(this, "phan tram km phai là số dương");
                 return null;
@@ -2493,11 +2497,11 @@ public class QuanLyView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "phan tram km phải là số.");
             return null;
         }
-              
+
         KhuyenMai km = new KhuyenMai(id, ma, ten, ngayTao, kieuKhuyenMai, tienKhuyenMai, phamTramKhuyenMai, ghiChu, trangThai);
         return km;
     }
-    
+
     private void clearFormKM() {
         lblIDKhuyenMai.setText("-");
         txtMaKM.setText("");
@@ -2507,9 +2511,9 @@ public class QuanLyView extends javax.swing.JPanel {
         txtGhiChuKM.setText("");
         cboTrangThaiKM.setSelectedIndex(0);
         jdsNgayTao.setCalendar(null);
-        
+
     }
-    
+
     private void loadTableBan() {
         DefaultTableModel model = (DefaultTableModel) this.tblBan.getModel();
         model.setRowCount(0);
@@ -2518,49 +2522,47 @@ public class QuanLyView extends javax.swing.JPanel {
                 b.getId(),
                 b.getMa(),
                 b.getTen(),
-                
-                b.getTrangThai()== 0 ? "Đang sử dụng" : "Chưa sử dụng",
-            };
-            
+                b.getTrangThai() == 0 ? "Đang sử dụng" : "Chưa sử dụng",};
+
             model.addRow(rowData);
         }
     }
-    
+
     private void clearFormBan() {
         lblIDBan.setText("-");
         txtMa.setText("");
         txtTenBan.setText("");
         cboBan.setSelectedIndex(0);
     }
-    
+
     private void setDisplayBan(Ban b) {
         lblIDBan.setText(b.getId());
         txtMa.setText(b.getMa());
         txtTenBan.setText(b.getTen());
-        
+
         cboBan.setSelectedIndex(b.getTrangThai());
     }
-    
+
     private Ban getFormDataBan() {
         String id = lblIDBan.getText().trim();
         String ma = txtMa.getText().trim();
         String ten = txtTenBan.getText().trim();
-        
+
         int trangThai = cboBan.getSelectedIndex();
-        
+
         if (ma.length() == 0
                 || ten.length() == 0) {
             JOptionPane.showMessageDialog(this, "Không được để trống");
             return null;
         }
-        
-        for(Ban b : this.bs.all()){
-            if(ma.equalsIgnoreCase(b.getMa())){
-               JOptionPane.showMessageDialog(this, "Mã không được trùng");
-            return null;
+
+        for (Ban b : this.bs.all()) {
+            if (ma.equalsIgnoreCase(b.getMa())) {
+                JOptionPane.showMessageDialog(this, "Mã không được trùng");
+                return null;
             }
         }
-        
+
         Ban b = new Ban(id, ma, ten, trangThai);
         return b;
     }

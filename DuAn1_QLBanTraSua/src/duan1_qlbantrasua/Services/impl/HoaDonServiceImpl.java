@@ -188,7 +188,7 @@ public class HoaDonServiceImpl implements HoaDonService {
 
     @Override
     public int fillKhoanghdh(java.util.Date ngayBD, java.util.Date ngayKT) {
-        return hoaDonRepository.fillKhoanghd(ngayBD, ngayKT);
+        return hoaDonRepository.fillKhoanghdh(ngayBD, ngayKT);
     }
 
 }
